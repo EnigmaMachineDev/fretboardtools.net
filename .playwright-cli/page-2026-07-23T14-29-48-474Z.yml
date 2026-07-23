@@ -1,0 +1,754 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "FretboardTools" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e9]
+        - generic [ref=e13]: FretboardTools
+      - navigation "Primary" [ref=e14]:
+        - link "Chord Finder" [ref=e15] [cursor=pointer]:
+          - /url: /
+          - img [ref=e16]
+          - generic [ref=e17]: Chord Finder
+        - link "Identify" [ref=e18] [cursor=pointer]:
+          - /url: /identify
+          - img [ref=e19]
+          - generic [ref=e22]: Identify
+        - link "Scales" [ref=e23] [cursor=pointer]:
+          - /url: /scales
+          - img [ref=e24]
+          - generic [ref=e26]: Scales
+        - link "Library" [ref=e27] [cursor=pointer]:
+          - /url: /library
+          - img [ref=e28]
+          - generic [ref=e30]: Library
+        - link "Support" [ref=e31] [cursor=pointer]:
+          - /url: https://buymeacoffee.com/EnigmaMachineDev
+          - img [ref=e32]
+          - generic [ref=e35]: Support
+  - main [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - heading "Chord Finder" [level=1] [ref=e39]
+        - paragraph [ref=e40]: Every bass fingering that fits your constraints, rated for playability.
+      - generic [ref=e41]:
+        - complementary [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - generic [ref=e45]: Tuning
+              - combobox "Tuning" [ref=e46]:
+                - option "Standard 4 (EADG)" [selected]
+                - option "Standard 5 (BEADG)"
+                - option "Standard 6 (BEADGC)"
+                - option "BEAD"
+                - option "F♯BEA"
+                - option "Tenor (ADGC)"
+                - option "Drop D (DADG)"
+                - option "Drop A 5 (AEADG)"
+                - option "Fifths (CGDA)"
+              - paragraph [ref=e47]:
+                - img [ref=e48]
+                - generic [ref=e50]: Same shapes as BEAD, F♯BEA, Tenor (ADGC) — identical gap vector (5,5,5).
+            - generic [ref=e51]:
+              - generic [ref=e52]:
+                - generic [ref=e53]: Min notes
+                - combobox "Min notes" [ref=e54]:
+                  - option "2"
+                  - option "3" [selected]
+                  - option "4"
+              - generic [ref=e55]:
+                - generic [ref=e56]: Max notes
+                - combobox "Max notes" [ref=e57]:
+                  - option "2"
+                  - option "3"
+                  - option "4" [selected]
+              - generic [ref=e58]:
+                - generic [ref=e59]: Fret window
+                - combobox "Fret window" [ref=e60]:
+                  - option "1"
+                  - option "2"
+                  - option "3"
+                  - option "4" [selected]
+                  - option "5"
+                  - option "6"
+                  - option "7"
+                  - option "8"
+            - generic [ref=e61]:
+              - generic [ref=e62]:
+                - checkbox "Allow string skips" [checked] [ref=e63]
+                - text: Allow string skips
+              - generic [ref=e64]:
+                - text: max
+                - combobox "Maximum consecutive skipped strings" [ref=e65]:
+                  - option "1" [selected]
+                  - option "2"
+            - generic [ref=e66]:
+              - generic [ref=e67]: Pin to strings (optional)
+              - generic [ref=e68]:
+                - button "1" [ref=e69] [cursor=pointer]
+                - button "2" [ref=e70] [cursor=pointer]
+                - button "3" [ref=e71] [cursor=pointer]
+                - button "4" [ref=e72] [cursor=pointer]
+              - paragraph [ref=e73]: String 1 is the lowest. Fewer than two pins means any strings.
+            - generic [ref=e74]:
+              - generic [ref=e75]: Scale degrees (e.g. 1 b3 5 — blank for all)
+              - textbox "Scale degrees (e.g. 1 b3 5 — blank for all)" [ref=e76]:
+                - /placeholder: 1 b3 5
+              - combobox "Chord preset" [ref=e77]:
+                - option "Preset…" [selected]
+                - option "Power Chord (5)"
+                - option "Quartal Stack (4ths)"
+                - option "Major (maj)"
+                - option "Minor (m)"
+                - option "Diminished (dim)"
+                - option "Augmented (aug)"
+                - option "Major Flat 5 (maj♭5)"
+                - option "Sus2 (sus2)"
+                - option "Sus4 (sus4)"
+                - option "Sus2/4 (sus2/4)"
+                - option "Major 6 (6)"
+                - option "Minor 6 (m6)"
+                - option "6/9 (6/9)"
+                - option "Minor 6/9 (m6/9)"
+                - option "6 Sus4 (6sus4)"
+                - option "Major 7 (maj7)"
+                - option "Dominant 7 (7)"
+                - option "Minor 7 (m7)"
+                - option "Minor 7 Flat 5 (m7♭5)"
+                - option "Diminished 7 (dim7)"
+                - option "Minor Major 7 (mMaj7)"
+                - option "Augmented Major 7 (maj7♯5)"
+                - option "Augmented 7 (7♯5)"
+                - option "7 Flat 5 (7♭5)"
+                - option "Major 7 Flat 5 (maj7♭5)"
+                - option "Minor 7 Sharp 5 (m7♯5)"
+                - option "Diminished Major 7 (dimMaj7)"
+                - option "7 Sus4 (7sus4)"
+                - option "7 Sus2 (7sus2)"
+                - option "Major 7 Sus4 (maj7sus4)"
+                - option "Add 9 (add9)"
+                - option "Minor Add 9 (madd9)"
+                - option "Add 11 (add11)"
+                - option "Minor Add 11 (madd11)"
+                - option "Minor Flat 6 (m♭6)"
+                - option "Major 9 (maj9)"
+                - option "Dominant 9 (9)"
+                - option "Minor 9 (m9)"
+                - option "Minor Major 9 (mMaj9)"
+                - option "9 Sus4 (9sus4)"
+                - option "Major 11 (maj11)"
+                - option "Dominant 11 (11)"
+                - option "Minor 11 (m11)"
+                - option "Major 13 (maj13)"
+                - option "Dominant 13 (13)"
+                - option "Minor 13 (m13)"
+                - option "7 Flat 9 (7♭9)"
+                - option "7 Sharp 9 (7♯9)"
+                - option "7 Flat 9 Flat 5 (7♭9♭5)"
+                - option "7 Flat 9 Sharp 5 (7♭9♯5)"
+                - option "7 Sharp 9 Flat 5 (7♯9♭5)"
+                - option "7 Sharp 9 Sharp 5 (7♯9♯5)"
+                - option "7 Sharp 11 (7♯11)"
+                - option "9 Sharp 11 (9♯11)"
+                - option "7 Flat 13 (7♭13)"
+                - option "13 Flat 9 (13♭9)"
+                - option "13 Sharp 11 (13♯11)"
+                - option "Major 9 Sharp 11 (maj9♯11)"
+                - option "Major 7 Sharp 11 (maj7♯11)"
+                - option "Minor 9 Flat 5 (m9♭5)"
+                - option "9 Flat 5 (9♭5)"
+              - generic [ref=e78]:
+                - checkbox "Include rootless interpretations" [ref=e79]
+                - text: Include rootless interpretations
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]: Max difficulty
+                - combobox "Max difficulty" [ref=e83]:
+                  - option "≤ Easy"
+                  - option "≤ Moderate"
+                  - option "≤ Hard" [selected]
+                  - option "≤ Very Hard"
+                  - option "All (incl. Impossible)"
+              - generic [ref=e84]:
+                - generic [ref=e85]: Sort
+                - combobox "Sort" [ref=e86]:
+                  - option "Playability" [selected]
+                  - option "Span"
+                  - option "Quality"
+          - generic [ref=e87]:
+            - button "Save search" [ref=e88] [cursor=pointer]:
+              - img [ref=e89]
+              - text: Save search
+            - button "Export CSV" [ref=e91] [cursor=pointer]:
+              - img [ref=e92]
+              - text: Export CSV
+        - region "Results" [ref=e95]:
+          - generic [ref=e97]:
+            - strong [ref=e98]: "323"
+            - text: matching shapes · 115 quality groups
+          - generic [ref=e99]:
+            - region "0,5,10" [ref=e100]:
+              - heading "Quartal Stack (4ths)" [level=2] [ref=e101]
+              - paragraph [ref=e102]: 1-4-♭7 · 4 voicings · 5 shapes
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - generic [ref=e105]:
+                    - generic [ref=e106]:
+                      - generic [ref=e107]:
+                        - generic [ref=e108]: Quartal Stack
+                        - generic [ref=e109]: 1-4-♭7
+                      - button "Add favorite" [ref=e110] [cursor=pointer]:
+                        - img [ref=e111]
+                    - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 0 (4), string 3 fret 0 (♭7)" [ref=e113]':
+                      - generic: "1"
+                      - generic [ref=e115]: "1"
+                      - generic: "1"
+                      - generic [ref=e116]: "4"
+                      - generic: "1"
+                      - generic [ref=e117]: ♭7
+                    - generic [ref=e118]:
+                      - generic [ref=e119]: Easy
+                      - generic [ref=e120]: span 1f
+                      - generic [ref=e121]: ·
+                      - generic [ref=e122]: 0-5-10
+                  - button "Show 1 fingering variant" [ref=e123] [cursor=pointer]:
+                    - img [ref=e124]
+                    - text: Show 1 fingering variant
+                - generic [ref=e127]:
+                  - generic [ref=e128]:
+                    - generic [ref=e129]:
+                      - generic [ref=e130]: Quartal Stack
+                      - generic [ref=e131]: 1-4-♭7
+                    - button "Add favorite" [ref=e132] [cursor=pointer]:
+                      - img [ref=e133]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 0 (4), string 3 fret 0 (♭7), string 4 fret 2 (4)" [ref=e135]':
+                    - generic: "1"
+                    - generic [ref=e137]: "1"
+                    - generic: "1"
+                    - generic [ref=e138]: "4"
+                    - generic: "1"
+                    - generic [ref=e139]: ♭7
+                    - generic: "3"
+                    - generic [ref=e140]: "4"
+                  - generic [ref=e141]:
+                    - generic [ref=e142]: Easy
+                    - generic [ref=e143]: span 3f
+                    - generic [ref=e144]: ·
+                    - generic [ref=e145]: 0-5-10-17
+                - generic [ref=e147]:
+                  - generic [ref=e148]:
+                    - generic [ref=e149]:
+                      - generic [ref=e150]: Quartal Stack
+                      - generic [ref=e151]: 1-4-♭7
+                    - button "Add favorite" [ref=e152] [cursor=pointer]:
+                      - img [ref=e153]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 3 fret 0 (♭7), string 4 fret 2 (4)" [ref=e155]':
+                    - generic [ref=e157]: ×
+                    - generic: "1"
+                    - generic [ref=e158]: "1"
+                    - generic: "1"
+                    - generic [ref=e159]: ♭7
+                    - generic: "3"
+                    - generic [ref=e160]: "4"
+                  - generic [ref=e161]:
+                    - generic [ref=e162]: Moderate
+                    - generic [ref=e163]: span 3f
+                    - generic [ref=e164]: ·
+                    - generic [ref=e165]: 0-10-17
+                  - generic [ref=e166]: 4 sounds as 11
+                - generic [ref=e168]:
+                  - generic [ref=e169]:
+                    - generic [ref=e170]:
+                      - generic [ref=e171]: Quartal Stack
+                      - generic [ref=e172]: 1-4-♭7
+                    - button "Add favorite" [ref=e173] [cursor=pointer]:
+                      - img [ref=e174]
+                  - 'img "Fretboard diagram: string 1 fret 3 (1), string 2 fret 3 (4), string 3 fret 3 (♭7), string 4 fret 0 (1)" [ref=e176]':
+                    - generic: "4"
+                    - generic [ref=e178]: "1"
+                    - generic: "4"
+                    - generic [ref=e179]: "4"
+                    - generic: "4"
+                    - generic [ref=e180]: ♭7
+                    - generic: "1"
+                    - generic [ref=e181]: "1"
+                  - generic [ref=e182]:
+                    - generic [ref=e183]: Moderate
+                    - generic [ref=e184]: span 4f
+                    - generic [ref=e185]: ·
+                    - generic [ref=e186]: 0-5-10-12
+            - region "0,5,7,10" [ref=e187]:
+              - heading "7 Sus4 (7sus4)" [level=2] [ref=e188]
+              - paragraph [ref=e189]: 1-4-5-♭7 · 3 voicings · 3 shapes
+              - generic [ref=e190]:
+                - generic [ref=e192]:
+                  - generic [ref=e193]:
+                    - generic [ref=e194]:
+                      - generic [ref=e195]: 7 Sus4
+                      - generic [ref=e196]: 1-4-5-♭7
+                    - button "Add favorite" [ref=e197] [cursor=pointer]:
+                      - img [ref=e198]
+                  - 'img "Fretboard diagram: string 1 fret 0 (5), string 2 fret 0 (1), string 3 fret 0 (4), string 4 fret 0 (♭7)" [ref=e200]':
+                    - generic: "1"
+                    - generic [ref=e202]: "5"
+                    - generic: "1"
+                    - generic [ref=e203]: "1"
+                    - generic: "1"
+                    - generic [ref=e204]: "4"
+                    - generic: "1"
+                    - generic [ref=e205]: ♭7
+                  - generic [ref=e206]:
+                    - generic [ref=e207]: Easy
+                    - generic [ref=e208]: span 1f
+                    - generic [ref=e209]: ·
+                    - generic [ref=e210]: 0-5-10-15
+                - generic [ref=e212]:
+                  - generic [ref=e213]:
+                    - generic [ref=e214]:
+                      - generic [ref=e215]: 7 Sus4
+                      - generic [ref=e216]: 1-4-5-♭7
+                    - button "Add favorite" [ref=e217] [cursor=pointer]:
+                      - img [ref=e218]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 2 (5), string 3 fret 0 (♭7), string 4 fret 2 (4)" [ref=e220]':
+                    - generic: "1"
+                    - generic [ref=e222]: "1"
+                    - generic: "3"
+                    - generic [ref=e223]: "5"
+                    - generic: "1"
+                    - generic [ref=e224]: ♭7
+                    - generic: "4"
+                    - generic [ref=e225]: "4"
+                  - generic [ref=e226]:
+                    - generic [ref=e227]: Easy
+                    - generic [ref=e228]: span 3f
+                    - generic [ref=e229]: ·
+                    - generic [ref=e230]: 0-7-10-17
+                  - generic [ref=e231]: 4 sounds as 11
+                - generic [ref=e233]:
+                  - generic [ref=e234]:
+                    - generic [ref=e235]:
+                      - generic [ref=e236]: 7 Sus4
+                      - generic [ref=e237]: 1-4-5-♭7
+                    - button "Add favorite" [ref=e238] [cursor=pointer]:
+                      - img [ref=e239]
+                  - 'img "Fretboard diagram: string 1 fret 1 (♭7), string 2 fret 3 (4), string 3 fret 0 (5), string 4 fret 0 (1)" [ref=e241]':
+                    - generic: "2"
+                    - generic [ref=e243]: ♭7
+                    - generic: "4"
+                    - generic [ref=e244]: "4"
+                    - generic: "1"
+                    - generic [ref=e245]: "5"
+                    - generic: "1"
+                    - generic [ref=e246]: "1"
+                  - generic [ref=e247]:
+                    - generic [ref=e248]: Moderate
+                    - generic [ref=e249]: span 4f
+                    - generic [ref=e250]: ·
+                    - generic [ref=e251]: 0-7-9-14
+            - region "0,2,4,10" [ref=e252]:
+              - heading "1-2-3-♭7" [level=2] [ref=e253]
+              - paragraph [ref=e254]: 1-2-3-♭7 · 1 voicing · 1 shape
+              - generic [ref=e257]:
+                - generic [ref=e258]:
+                  - generic [ref=e259]:
+                    - generic [ref=e260]: 1-2-3-♭7
+                    - generic [ref=e261]: 1-2-3-♭7
+                  - button "Add favorite" [ref=e262] [cursor=pointer]:
+                    - img [ref=e263]
+                - 'img "Fretboard diagram: string 1 fret 1 (1), string 2 fret 0 (3), string 3 fret 1 (♭7), string 4 fret 0 (2)" [ref=e265]':
+                  - generic: "2"
+                  - generic [ref=e267]: "1"
+                  - generic: "1"
+                  - generic [ref=e268]: "3"
+                  - generic: "3"
+                  - generic [ref=e269]: ♭7
+                  - generic: "1"
+                  - generic [ref=e270]: "2"
+                - generic [ref=e271]:
+                  - generic [ref=e272]: Easy
+                  - generic [ref=e273]: span 2f
+                  - generic [ref=e274]: ·
+                  - generic [ref=e275]: 0-4-10-14
+                - generic [ref=e276]: 2 sounds as 9
+            - region "0,2,7,10" [ref=e277]:
+              - heading "7 Sus2 (7sus2)" [level=2] [ref=e278]
+              - paragraph [ref=e279]: 1-2-5-♭7 · 2 voicings · 2 shapes
+              - generic [ref=e280]:
+                - generic [ref=e282]:
+                  - generic [ref=e283]:
+                    - generic [ref=e284]:
+                      - generic [ref=e285]: 7 Sus2
+                      - generic [ref=e286]: 1-2-5-♭7
+                    - button "Add favorite" [ref=e287] [cursor=pointer]:
+                      - img [ref=e288]
+                  - 'img "Fretboard diagram: string 1 fret 1 (♭7), string 2 fret 0 (2), string 3 fret 0 (5), string 4 fret 0 (1)" [ref=e290]':
+                    - generic: "2"
+                    - generic [ref=e292]: ♭7
+                    - generic: "1"
+                    - generic [ref=e293]: "2"
+                    - generic: "1"
+                    - generic [ref=e294]: "5"
+                    - generic: "1"
+                    - generic [ref=e295]: "1"
+                  - generic [ref=e296]:
+                    - generic [ref=e297]: Easy
+                    - generic [ref=e298]: span 2f
+                    - generic [ref=e299]: ·
+                    - generic [ref=e300]: 0-4-9-14
+                - generic [ref=e302]:
+                  - generic [ref=e303]:
+                    - generic [ref=e304]:
+                      - generic [ref=e305]: 7 Sus2
+                      - generic [ref=e306]: 1-2-5-♭7
+                    - button "Add favorite" [ref=e307] [cursor=pointer]:
+                      - img [ref=e308]
+                  - 'img "Fretboard diagram: string 1 fret 1 (1), string 2 fret 3 (5), string 3 fret 1 (♭7), string 4 fret 0 (2)" [ref=e310]':
+                    - generic: "2"
+                    - generic [ref=e312]: "1"
+                    - generic: "4"
+                    - generic [ref=e313]: "5"
+                    - generic: "2"
+                    - generic [ref=e314]: ♭7
+                    - generic: "1"
+                    - generic [ref=e315]: "2"
+                  - generic [ref=e316]:
+                    - generic [ref=e317]: Moderate
+                    - generic [ref=e318]: span 4f
+                    - generic [ref=e319]: ·
+                    - generic [ref=e320]: 0-7-10-14
+                  - generic [ref=e321]: 2 sounds as 9
+            - region "0,3,10" [ref=e322]:
+              - heading "1-♭3-♭7" [level=2] [ref=e323]
+              - paragraph [ref=e324]: 1-♭3-♭7 · 4 voicings · 5 shapes
+              - generic [ref=e325]:
+                - generic [ref=e327]:
+                  - generic [ref=e328]:
+                    - generic [ref=e329]:
+                      - generic [ref=e330]: 1-♭3-♭7
+                      - generic [ref=e331]: 1-♭3-♭7
+                    - button "Add favorite" [ref=e332] [cursor=pointer]:
+                      - img [ref=e333]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 3 fret 0 (♭7), string 4 fret 0 (♭3)" [ref=e335]':
+                    - generic [ref=e337]: ×
+                    - generic: "1"
+                    - generic [ref=e338]: "1"
+                    - generic: "1"
+                    - generic [ref=e339]: ♭7
+                    - generic: "1"
+                    - generic [ref=e340]: ♭3
+                  - generic [ref=e341]:
+                    - generic [ref=e342]: Easy
+                    - generic [ref=e343]: span 1f
+                    - generic [ref=e344]: ·
+                    - generic [ref=e345]: 0-10-15
+                  - generic [ref=e346]: ♭3 sounds as ♯9
+                - generic [ref=e348]:
+                  - generic [ref=e349]:
+                    - generic [ref=e350]:
+                      - generic [ref=e351]: 1-♭3-♭7
+                      - generic [ref=e352]: 1-♭3-♭7
+                    - button "Add favorite" [ref=e353] [cursor=pointer]:
+                      - img [ref=e354]
+                  - 'img "Fretboard diagram: string 1 fret 2 (1), string 2 fret 0 (♭3), string 3 fret 2 (♭7), string 4 fret 2 (♭3)" [ref=e356]':
+                    - generic: "3"
+                    - generic [ref=e358]: "1"
+                    - generic: "1"
+                    - generic [ref=e359]: ♭3
+                    - generic: "4"
+                    - generic [ref=e360]: ♭7
+                    - generic: "4"
+                    - generic [ref=e361]: ♭3
+                  - generic [ref=e362]:
+                    - generic [ref=e363]: Easy
+                    - generic [ref=e364]: span 3f
+                    - generic [ref=e365]: ·
+                    - generic [ref=e366]: 0-3-10-15
+                - generic [ref=e367]:
+                  - generic [ref=e368]:
+                    - generic [ref=e369]:
+                      - generic [ref=e370]:
+                        - generic [ref=e371]: 1-♭3-♭7
+                        - generic [ref=e372]: 1-♭3-♭7
+                      - button "Add favorite" [ref=e373] [cursor=pointer]:
+                        - img [ref=e374]
+                    - 'img "Fretboard diagram: string 1 fret 2 (1), string 2 fret 0 (♭3), string 3 fret 2 (♭7)" [ref=e376]':
+                      - generic: "3"
+                      - generic [ref=e378]: "1"
+                      - generic: "1"
+                      - generic [ref=e379]: ♭3
+                      - generic: "4"
+                      - generic [ref=e380]: ♭7
+                    - generic [ref=e381]:
+                      - generic [ref=e382]: Easy
+                      - generic [ref=e383]: span 3f
+                      - generic [ref=e384]: ·
+                      - generic [ref=e385]: 0-3-10
+                  - button "Show 1 fingering variant" [ref=e386] [cursor=pointer]:
+                    - img [ref=e387]
+                    - text: Show 1 fingering variant
+                - generic [ref=e390]:
+                  - generic [ref=e391]:
+                    - generic [ref=e392]:
+                      - generic [ref=e393]: 1-♭3-♭7
+                      - generic [ref=e394]: 1-♭3-♭7
+                    - button "Add favorite" [ref=e395] [cursor=pointer]:
+                      - img [ref=e396]
+                  - 'img "Fretboard diagram: string 1 fret 3 (1), string 2 fret 1 (♭3), string 3 fret 3 (♭7), string 4 fret 0 (1)" [ref=e398]':
+                    - generic: "3"
+                    - generic [ref=e400]: "1"
+                    - generic: "2"
+                    - generic [ref=e401]: ♭3
+                    - generic: "4"
+                    - generic [ref=e402]: ♭7
+                    - generic: "1"
+                    - generic [ref=e403]: "1"
+                  - generic [ref=e404]:
+                    - generic [ref=e405]: Hard
+                    - generic [ref=e406]: span 4f
+                    - generic [ref=e407]: ·
+                    - generic [ref=e408]: 0-3-10-12
+            - region "0,3,4,10" [ref=e409]:
+              - heading "1-♭3-3-♭7" [level=2] [ref=e410]
+              - paragraph [ref=e411]: 1-♭3-3-♭7 · 2 voicings · 2 shapes
+              - generic [ref=e412]:
+                - generic [ref=e414]:
+                  - generic [ref=e415]:
+                    - generic [ref=e416]:
+                      - generic [ref=e417]: 1-♭3-3-♭7
+                      - generic [ref=e418]: 1-♭3-3-♭7
+                    - button "Add favorite" [ref=e419] [cursor=pointer]:
+                      - img [ref=e420]
+                  - 'img "Fretboard diagram: string 1 fret 1 (1), string 2 fret 0 (3), string 3 fret 1 (♭7), string 4 fret 1 (♭3)" [ref=e422]':
+                    - generic: "2"
+                    - generic [ref=e424]: "1"
+                    - generic: "1"
+                    - generic [ref=e425]: "3"
+                    - generic: "3"
+                    - generic [ref=e426]: ♭7
+                    - generic: "3"
+                    - generic [ref=e427]: ♭3
+                  - generic [ref=e428]:
+                    - generic [ref=e429]: Easy
+                    - generic [ref=e430]: span 2f
+                    - generic [ref=e431]: ·
+                    - generic [ref=e432]: 0-4-10-15
+                  - generic [ref=e433]: ♭3 sounds as ♯9
+                - generic [ref=e435]:
+                  - generic [ref=e436]:
+                    - generic [ref=e437]:
+                      - generic [ref=e438]: 1-♭3-3-♭7
+                      - generic [ref=e439]: 1-♭3-3-♭7
+                    - button "Add favorite" [ref=e440] [cursor=pointer]:
+                      - img [ref=e441]
+                  - 'img "Fretboard diagram: string 1 fret 2 (1), string 2 fret 0 (♭3), string 3 fret 2 (♭7), string 4 fret 3 (3)" [ref=e443]':
+                    - generic: "2"
+                    - generic [ref=e445]: "1"
+                    - generic: "1"
+                    - generic [ref=e446]: ♭3
+                    - generic: "3"
+                    - generic [ref=e447]: ♭7
+                    - generic: "4"
+                    - generic [ref=e448]: "3"
+                  - generic [ref=e449]:
+                    - generic [ref=e450]: Hard
+                    - generic [ref=e451]: span 4f
+                    - generic [ref=e452]: ·
+                    - generic [ref=e453]: 0-3-10-16
+            - region "0,3,4,9" [ref=e454]:
+              - heading "1-♭3-3-6" [level=2] [ref=e455]
+              - paragraph [ref=e456]: 1-♭3-3-6 · 2 voicings · 2 shapes
+              - generic [ref=e457]:
+                - generic [ref=e459]:
+                  - generic [ref=e460]:
+                    - generic [ref=e461]:
+                      - generic [ref=e462]: 1-♭3-3-6
+                      - generic [ref=e463]: 1-♭3-3-6
+                    - button "Add favorite" [ref=e464] [cursor=pointer]:
+                      - img [ref=e465]
+                  - 'img "Fretboard diagram: string 1 fret 1 (1), string 2 fret 0 (3), string 3 fret 0 (6), string 4 fret 1 (♭3)" [ref=e467]':
+                    - generic: "2"
+                    - generic [ref=e469]: "1"
+                    - generic: "1"
+                    - generic [ref=e470]: "3"
+                    - generic: "1"
+                    - generic [ref=e471]: "6"
+                    - generic: "3"
+                    - generic [ref=e472]: ♭3
+                  - generic [ref=e473]:
+                    - generic [ref=e474]: Easy
+                    - generic [ref=e475]: span 2f
+                    - generic [ref=e476]: ·
+                    - generic [ref=e477]: 0-4-9-15
+                  - generic [ref=e478]: ♭3 sounds as ♯9
+                - generic [ref=e480]:
+                  - generic [ref=e481]:
+                    - generic [ref=e482]:
+                      - generic [ref=e483]: 1-♭3-3-6
+                      - generic [ref=e484]: 1-♭3-3-6
+                    - button "Add favorite" [ref=e485] [cursor=pointer]:
+                      - img [ref=e486]
+                  - 'img "Fretboard diagram: string 1 fret 2 (1), string 2 fret 0 (♭3), string 3 fret 1 (6), string 4 fret 3 (3)" [ref=e488]':
+                    - generic: "3"
+                    - generic [ref=e490]: "1"
+                    - generic: "1"
+                    - generic [ref=e491]: ♭3
+                    - generic: "2"
+                    - generic [ref=e492]: "6"
+                    - generic: "4"
+                    - generic [ref=e493]: "3"
+                  - generic [ref=e494]:
+                    - generic [ref=e495]: Moderate
+                    - generic [ref=e496]: span 4f
+                    - generic [ref=e497]: ·
+                    - generic [ref=e498]: 0-3-9-16
+            - region "0,3,5" [ref=e499]:
+              - heading "1-♭3-4" [level=2] [ref=e500]
+              - paragraph [ref=e501]: 1-♭3-4 · 2 voicings · 2 shapes
+              - generic [ref=e502]:
+                - generic [ref=e504]:
+                  - generic [ref=e505]:
+                    - generic [ref=e506]:
+                      - generic [ref=e507]: 1-♭3-4
+                      - generic [ref=e508]: 1-♭3-4
+                    - button "Add favorite" [ref=e509] [cursor=pointer]:
+                      - img [ref=e510]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 0 (4), string 4 fret 0 (♭3)" [ref=e512]':
+                    - generic [ref=e514]: ×
+                    - generic: "1"
+                    - generic [ref=e515]: "1"
+                    - generic: "1"
+                    - generic [ref=e516]: "4"
+                    - generic: "1"
+                    - generic [ref=e517]: ♭3
+                  - generic [ref=e518]:
+                    - generic [ref=e519]: Easy
+                    - generic [ref=e520]: span 1f
+                    - generic [ref=e521]: ·
+                    - generic [ref=e522]: 0-5-15
+                  - generic [ref=e523]: ♭3 sounds as ♯9
+                - generic [ref=e525]:
+                  - generic [ref=e526]:
+                    - generic [ref=e527]:
+                      - generic [ref=e528]: 1-♭3-4
+                      - generic [ref=e529]: 1-♭3-4
+                    - button "Add favorite" [ref=e530] [cursor=pointer]:
+                      - img [ref=e531]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 0 (4), string 3 fret 2 (1), string 4 fret 0 (♭3)" [ref=e533]':
+                    - generic: "1"
+                    - generic [ref=e535]: "1"
+                    - generic: "1"
+                    - generic [ref=e536]: "4"
+                    - generic: "3"
+                    - generic [ref=e537]: "1"
+                    - generic: "1"
+                    - generic [ref=e538]: ♭3
+                  - generic [ref=e539]:
+                    - generic [ref=e540]: Easy
+                    - generic [ref=e541]: span 3f
+                    - generic [ref=e542]: ·
+                    - generic [ref=e543]: 0-5-12-15
+                  - generic [ref=e544]: ♭3 sounds as ♯9
+            - region "0,3,5,11" [ref=e545]:
+              - heading "1-♭3-4-7" [level=2] [ref=e546]
+              - paragraph [ref=e547]: 1-♭3-4-7 · 1 voicing · 1 shape
+              - generic [ref=e550]:
+                - generic [ref=e551]:
+                  - generic [ref=e552]:
+                    - generic [ref=e553]: 1-♭3-4-7
+                    - generic [ref=e554]: 1-♭3-4-7
+                  - button "Add favorite" [ref=e555] [cursor=pointer]:
+                    - img [ref=e556]
+                - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 0 (4), string 3 fret 1 (7), string 4 fret 0 (♭3)" [ref=e558]':
+                  - generic: "1"
+                  - generic [ref=e560]: "1"
+                  - generic: "1"
+                  - generic [ref=e561]: "4"
+                  - generic: "2"
+                  - generic [ref=e562]: "7"
+                  - generic: "1"
+                  - generic [ref=e563]: ♭3
+                - generic [ref=e564]:
+                  - generic [ref=e565]: Easy
+                  - generic [ref=e566]: span 2f
+                  - generic [ref=e567]: ·
+                  - generic [ref=e568]: 0-5-11-15
+                - generic [ref=e569]: ♭3 sounds as ♯9
+            - region "0,3,6,10" [ref=e570]:
+              - heading "Minor 7 Flat 5 (m7♭5)" [level=2] [ref=e571]
+              - paragraph [ref=e572]: 1-♭3-♭5-♭7 · 3 voicings · 3 shapes
+              - generic [ref=e573]:
+                - generic [ref=e575]:
+                  - generic [ref=e576]:
+                    - generic [ref=e577]:
+                      - generic [ref=e578]: Minor 7 Flat 5
+                      - generic [ref=e579]: 1-♭3-♭5-♭7
+                    - button "Add favorite" [ref=e580] [cursor=pointer]:
+                      - img [ref=e581]
+                  - 'img "Fretboard diagram: string 1 fret 0 (1), string 2 fret 1 (♭5), string 3 fret 0 (♭7), string 4 fret 0 (♭3)" [ref=e583]':
+                    - generic: "1"
+                    - generic [ref=e585]: "1"
+                    - generic: "2"
+                    - generic [ref=e586]: ♭5
+                    - generic: "1"
+                    - generic [ref=e587]: ♭7
+                    - generic: "1"
+                    - generic [ref=e588]: ♭3
+                  - generic [ref=e589]:
+                    - generic [ref=e590]: Easy
+                    - generic [ref=e591]: span 2f
+                    - generic [ref=e592]: ·
+                    - generic [ref=e593]: 0-6-10-15
+                  - generic [ref=e594]: ♭3 sounds as ♯9
+                - generic [ref=e596]:
+                  - generic [ref=e597]:
+                    - generic [ref=e598]:
+                      - generic [ref=e599]: Minor 7 Flat 5
+                      - generic [ref=e600]: 1-♭3-♭5-♭7
+                    - button "Add favorite" [ref=e601] [cursor=pointer]:
+                      - img [ref=e602]
+                  - 'img "Fretboard diagram: string 1 fret 2 (♭7), string 2 fret 2 (♭3), string 3 fret 0 (♭5), string 4 fret 1 (1)" [ref=e604]':
+                    - generic: "3"
+                    - generic [ref=e606]: ♭7
+                    - generic: "3"
+                    - generic [ref=e607]: ♭3
+                    - generic: "1"
+                    - generic [ref=e608]: ♭5
+                    - generic: "2"
+                    - generic [ref=e609]: "1"
+                  - generic [ref=e610]:
+                    - generic [ref=e611]: Easy
+                    - generic [ref=e612]: span 3f
+                    - generic [ref=e613]: ·
+                    - generic [ref=e614]: 0-5-8-14
+                - generic [ref=e616]:
+                  - generic [ref=e617]:
+                    - generic [ref=e618]:
+                      - generic [ref=e619]: Minor 7 Flat 5
+                      - generic [ref=e620]: 1-♭3-♭5-♭7
+                    - button "Add favorite" [ref=e621] [cursor=pointer]:
+                      - img [ref=e622]
+                  - 'img "Fretboard diagram: string 1 fret 1 (♭5), string 2 fret 2 (1), string 3 fret 0 (♭3), string 4 fret 2 (♭7)" [ref=e624]':
+                    - generic: "2"
+                    - generic [ref=e626]: ♭5
+                    - generic: "3"
+                    - generic [ref=e627]: "1"
+                    - generic: "1"
+                    - generic [ref=e628]: ♭3
+                    - generic: "4"
+                    - generic [ref=e629]: ♭7
+                  - generic [ref=e630]:
+                    - generic [ref=e631]: Easy
+                    - generic [ref=e632]: span 3f
+                    - generic [ref=e633]: ·
+                    - generic [ref=e634]: 0-6-9-16
+            - generic [ref=e635]: Loading more…
+  - contentinfo [ref=e636]:
+    - generic [ref=e637]:
+      - link "About" [ref=e639] [cursor=pointer]:
+        - /url: /about
+      - paragraph [ref=e640]: FretboardTools — a free, browser-only tool. No account required. Your data stays on your device.
+      - paragraph [ref=e641]:
+        - text: Built by
+        - strong [ref=e642]: EnigmaMachineDev

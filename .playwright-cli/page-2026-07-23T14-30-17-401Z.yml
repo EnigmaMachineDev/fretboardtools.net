@@ -1,0 +1,95 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "FretboardTools" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e9]
+        - generic [ref=e13]: FretboardTools
+      - navigation "Primary" [ref=e14]:
+        - link "Chord Finder" [ref=e15] [cursor=pointer]:
+          - /url: /
+          - img [ref=e16]
+          - generic [ref=e17]: Chord Finder
+        - link "Identify" [ref=e18] [cursor=pointer]:
+          - /url: /identify
+          - img [ref=e19]
+          - generic [ref=e22]: Identify
+        - link "Scales" [ref=e23] [cursor=pointer]:
+          - /url: /scales
+          - img [ref=e24]
+          - generic [ref=e26]: Scales
+        - link "Library" [ref=e27] [cursor=pointer]:
+          - /url: /library
+          - img [ref=e28]
+          - generic [ref=e30]: Library
+        - link "Support" [ref=e31] [cursor=pointer]:
+          - /url: https://buymeacoffee.com/EnigmaMachineDev
+          - img [ref=e32]
+          - generic [ref=e35]: Support
+  - main [ref=e36]:
+    - article [ref=e37]:
+      - heading "How FretboardTools Works" [level=1] [ref=e38]
+      - paragraph [ref=e39]:
+        - text: FretboardTools is a bass fretboard voicing engine. You give it parameters — a tuning, how many strings the chord uses, a fret window, whether string skips are allowed, which scale degrees you want — and it enumerates
+        - emphasis [ref=e40]: every
+        - text: fingering that satisfies them, rates each one for playability, and groups the results so you can actually read them.
+      - heading "The shape is the atom" [level=2] [ref=e41]
+      - paragraph [ref=e42]:
+        - text: "Everything here is built on one abstraction: a"
+        - strong [ref=e43]: shape
+        - text: is a set of strings plus fret offsets, normalized so the lowest fret used is 0. That makes every shape transposition-invariant and position-invariant by construction. You don't get “the chord at the 5th fret” — you get
+        - emphasis [ref=e44]: the fingering
+        - text: ", which you can slide anywhere on the neck. Sounding pitches, scale degrees, chord names, difficulty, and the suggested fingering are all derived from shape + tuning + chosen root, on demand."
+      - heading "BEAD and EADG are the same shapes — here's why" [level=2] [ref=e45]
+      - paragraph [ref=e46]:
+        - text: The engine never sees the absolute pitches of your open strings. Only the semitone gaps
+        - emphasis [ref=e47]: between adjacent strings
+        - text: matter to which shapes exist and how they sound relative to their own bass note. EADG, BEAD, F♯BEA — every all-fourths 4-string tuning — share the gap vector
+        - code [ref=e48]: (5,5,5)
+        - text: ", so they define exactly the same shape space and produce identical results. Drop D is"
+        - code [ref=e49]: (7,5,5)
+        - text: ": a genuinely different space. A 5-string BEADG is"
+        - code [ref=e50]: (5,5,5,5)
+        - text: .
+      - paragraph [ref=e51]:
+        - text: "This is why the tuning picker shows an equivalence badge, and why favorites are keyed by gap vector rather than by tuning: the same shape favorited under EADG and under BEAD"
+        - emphasis [ref=e52]: is
+        - text: the same shape, and it deduplicates automatically. Renaming or deleting a tuning can never orphan a favorite.
+      - heading "Why open strings are excluded" [level=2] [ref=e53]
+      - paragraph [ref=e54]: Deliberately. An open string is a half step below the 1st fret and is specific to one tuning, which fights position-invariance — a shape that leans on an open string stops being slidable. Fretted notes only, everywhere.
+      - heading "How difficulty is rated" [level=2] [ref=e55]
+      - paragraph [ref=e56]:
+        - text: Each shape goes through a real finger-assignment solver, not a heuristic. Fingers 1–4 are assigned under physical constraints — lower frets can't take higher fingers, a finger can only barre one fret, and a barre is illegal if a string under it needs a lower fret. The best valid assignment is costed (span, barres, muted interior strings, pinky stretch) and banded Easy → Very Hard; shapes with no valid assignment at all are marked Impossible. Hard and Impossible shapes are still generated — the rating is a filter
+        - emphasis [ref=e57]: you
+        - text: control, never a gate the engine applies on its own.
+      - 'heading "An honest limitation: position matters, and we can''t see it" [level=2] [ref=e58]'
+      - paragraph [ref=e59]:
+        - text: Because shapes are position-invariant, the difficulty rating cannot know
+        - emphasis [ref=e60]: where
+        - text: "on the neck you'll play one. Fret spacing shrinks as you go up: a 4-fret spread that is punishing at the 2nd fret can be comfortable at the 12th. The rating describes the shape's intrinsic geometry, not any particular position of it. Take it as a comparison between shapes, not a promise about your hand at any given fret."
+      - heading "Ambiguity is kept, not hidden" [level=2] [ref=e61]
+      - paragraph [ref=e62]:
+        - text: A three-note set is genuinely ambiguous — 1-♭3-♭5 is a diminished triad
+        - emphasis [ref=e63]: or
+        - text: a rootless dominant 7. The
+        - link "Identify" [ref=e64] [cursor=pointer]:
+          - /url: /identify
+        - text: page returns every interpretation, ranked with sounded roots first. Interval labels are primary; chord names are an annotation, and several may apply at once.
+      - heading "Your data" [level=2] [ref=e65]
+      - paragraph [ref=e66]:
+        - text: No backend, no account, no tracking of your playing. Custom tunings, chord definitions, favorites, and saved searches live in your browser's local storage, with JSON export/import in the
+        - link "Library" [ref=e67] [cursor=pointer]:
+          - /url: /library
+        - text: . Search parameters live in the URL, so any result set can be shared as a link.
+      - heading "The fine print on names" [level=2] [ref=e68]
+      - paragraph [ref=e69]: FretboardTools ships ~60 built-in chord qualities, but any degree set you define is a first-class citizen — if you want 2-6-8, you get 2-6-8, whether or not a theory textbook has a name for it. Your definitions shadow the built-ins when the degree sets collide.
+  - contentinfo [ref=e70]:
+    - generic [ref=e71]:
+      - link "About" [ref=e73] [cursor=pointer]:
+        - /url: /about
+      - paragraph [ref=e74]: FretboardTools — a free, browser-only tool. No account required. Your data stays on your device.
+      - paragraph [ref=e75]:
+        - text: Built by
+        - strong [ref=e76]: EnigmaMachineDev

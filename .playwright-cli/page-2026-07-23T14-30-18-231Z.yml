@@ -1,0 +1,44 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "FretboardTools" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e9]
+        - generic [ref=e13]: FretboardTools
+      - navigation "Primary" [ref=e14]:
+        - link "Chord Finder" [ref=e15] [cursor=pointer]:
+          - /url: /
+          - img [ref=e16]
+          - generic [ref=e17]: Chord Finder
+        - link "Identify" [ref=e18] [cursor=pointer]:
+          - /url: /identify
+          - img [ref=e19]
+          - generic [ref=e22]: Identify
+        - link "Scales" [ref=e23] [cursor=pointer]:
+          - /url: /scales
+          - img [ref=e24]
+          - generic [ref=e26]: Scales
+        - link "Library" [ref=e27] [cursor=pointer]:
+          - /url: /library
+          - img [ref=e28]
+          - generic [ref=e30]: Library
+        - link "Support" [ref=e31] [cursor=pointer]:
+          - /url: https://buymeacoffee.com/EnigmaMachineDev
+          - img [ref=e32]
+          - generic [ref=e35]: Support
+  - main [ref=e36]:
+    - generic [ref=e37]:
+      - heading "Page Not Found" [level=1] [ref=e38]
+      - paragraph [ref=e39]: That page doesn't exist — but the fingerings do.
+      - link "Back to the Chord Finder" [ref=e40] [cursor=pointer]:
+        - /url: /
+  - contentinfo [ref=e41]:
+    - generic [ref=e42]:
+      - link "About" [ref=e44] [cursor=pointer]:
+        - /url: /about
+      - paragraph [ref=e45]: FretboardTools — a free, browser-only tool. No account required. Your data stays on your device.
+      - paragraph [ref=e46]:
+        - text: Built by
+        - strong [ref=e47]: EnigmaMachineDev

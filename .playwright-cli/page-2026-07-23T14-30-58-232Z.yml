@@ -1,0 +1,90 @@
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "FretboardTools" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e9]
+        - generic [ref=e13]: FretboardTools
+      - navigation "Primary" [ref=e14]:
+        - link "Chord Finder" [ref=e15] [cursor=pointer]:
+          - /url: /
+          - img [ref=e16]
+          - generic [ref=e17]: Chord Finder
+        - link "Identify" [ref=e18] [cursor=pointer]:
+          - /url: /identify
+          - img [ref=e19]
+          - generic [ref=e22]: Identify
+        - link "Scales" [ref=e23] [cursor=pointer]:
+          - /url: /scales
+          - img [ref=e24]
+          - generic [ref=e26]: Scales
+        - link "Library" [ref=e27] [cursor=pointer]:
+          - /url: /library
+          - img [ref=e28]
+          - generic [ref=e30]: Library
+        - link "Support" [ref=e31] [cursor=pointer]:
+          - /url: https://buymeacoffee.com/EnigmaMachineDev
+          - img [ref=e32]
+          - generic [ref=e35]: Support
+  - main [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - heading "Identify a Shape" [level=1] [ref=e39]
+        - paragraph [ref=e40]: Click notes onto the board — one per string. The window is position-invariant, so only the offsets matter, not where on the neck you imagine it.
+      - generic [ref=e41]:
+        - complementary [ref=e42]:
+          - generic [ref=e43]: Tuning
+          - combobox "Tuning" [ref=e44]:
+            - option "Standard 4 (EADG)" [selected]
+            - option "Standard 5 (BEADG)"
+            - option "Standard 6 (BEADGC)"
+            - option "BEAD"
+            - option "F♯BEA"
+            - option "Tenor (ADGC)"
+            - option "Drop D (DADG)"
+            - option "Drop A 5 (AEADG)"
+            - option "Fifths (CGDA)"
+          - 'img "Fretboard diagram: string 1 fret 0" [ref=e87]':
+            - button "String 1, fret 0" [ref=e47] [cursor=pointer]
+            - button "String 1, fret 1" [ref=e48] [cursor=pointer]
+            - button "String 1, fret 2" [ref=e49] [cursor=pointer]
+            - button "String 1, fret 3" [ref=e50] [cursor=pointer]
+            - button "String 1, fret 4" [ref=e51] [cursor=pointer]
+            - button "String 1, fret 5" [ref=e52] [cursor=pointer]
+            - button "String 2, fret 0" [ref=e53] [cursor=pointer]
+            - button "String 2, fret 1" [ref=e54] [cursor=pointer]
+            - button "String 2, fret 2" [ref=e55] [cursor=pointer]
+            - button "String 2, fret 3" [ref=e56] [cursor=pointer]
+            - button "String 2, fret 4" [ref=e57] [cursor=pointer]
+            - button "String 2, fret 5" [ref=e58] [cursor=pointer]
+            - button "String 3, fret 0" [ref=e59] [cursor=pointer]
+            - button "String 3, fret 1" [ref=e60] [cursor=pointer]
+            - button "String 3, fret 2" [ref=e61] [cursor=pointer]
+            - button "String 3, fret 3" [ref=e62] [cursor=pointer]
+            - button "String 3, fret 4" [ref=e63] [cursor=pointer]
+            - button "String 3, fret 5" [ref=e64] [cursor=pointer]
+            - button "String 4, fret 0" [ref=e65] [cursor=pointer]
+            - button "String 4, fret 1" [ref=e66] [cursor=pointer]
+            - button "String 4, fret 2" [ref=e67] [cursor=pointer]
+            - button "String 4, fret 3" [ref=e68] [cursor=pointer]
+            - button "String 4, fret 4" [ref=e69] [cursor=pointer]
+            - button "String 4, fret 5" [ref=e70] [cursor=pointer]
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - checkbox "Rootless roots too" [ref=e73]
+              - text: Rootless roots too
+            - button "Clear" [ref=e74] [cursor=pointer]:
+              - img [ref=e75]
+              - text: Clear
+        - region "Interpretations" [ref=e78]:
+          - generic [ref=e79]: Add at least two notes to analyze the shape.
+  - contentinfo [ref=e80]:
+    - generic [ref=e81]:
+      - link "About" [ref=e83] [cursor=pointer]:
+        - /url: /about
+      - paragraph [ref=e84]: FretboardTools — a free, browser-only tool. No account required. Your data stays on your device.
+      - paragraph [ref=e85]:
+        - text: Built by
+        - strong [ref=e86]: EnigmaMachineDev
