@@ -34,6 +34,12 @@ export interface ShapeRef {
 /** Deterministic and content-addressed. */
 export type ShapeKey = string // `${gapKey}|${notes.map(n => `${n.s}.${n.f}`).join('-')}|r${rootPc}`
 
+export interface Favorite {
+  ref: ShapeRef
+  note?: string
+  createdAt: number
+}
+
 /** Sort by string ascending and shift frets so the minimum is 0. */
 export function normalizeShape(notes: readonly ShapeNote[]): Shape {
   const min = Math.min(...notes.map((n) => n.f))
