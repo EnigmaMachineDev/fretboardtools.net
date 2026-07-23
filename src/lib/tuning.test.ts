@@ -6,6 +6,8 @@ import {
   gapKey,
   gaps,
   makeTuning,
+  parsePitch,
+  parsePitches,
   pitchName,
   validateTuningPitches,
   type Tuning,
@@ -77,6 +79,36 @@ describe('validateTuningPitches', () => {
     expect(validateTuningPitches([28.5, 33])).not.toBeNull()
     expect(validateTuningPitches([-1, 5])).not.toBeNull()
     expect(validateTuningPitches([120, 130])).not.toBeNull()
+  })
+})
+
+describe('parsePitch / parsePitches', () => {
+  it('parses note names and MIDI numbers', () => {
+    expect(parsePitch('E1')).toBe(28)
+    expect(parsePitch('B0')).toBe(23)
+    expect(parsePitch('F#0')).toBe(18)
+    expect(parsePitch('Bb0')).toBe(22)
+    expect(parsePitch('28')).toBe(28)
+  })
+
+  it('rejects garbage', () => {
+    expect(parsePitch('H2')).toBeNull()
+    expect(parsePitch('E')).toBeNull()
+    expect(parsePitch('999')).toBeNull()
+  })
+
+  it('round-trips pitchName', () => {
+    for (const t of BUILTIN_TUNINGS) {
+      for (const p of t.pitches) {
+        expect(parsePitch(pitchName(p))).toBe(p)
+      }
+    }
+  })
+
+  it('parses a whole line either way', () => {
+    expect(parsePitches('B0 E1 A1 D2')).toEqual([23, 28, 33, 38])
+    expect(parsePitches('23,28,33,38')).toEqual([23, 28, 33, 38])
+    expect(parsePitches('B0 nope')).toBeNull()
   })
 })
 

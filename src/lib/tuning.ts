@@ -108,3 +108,39 @@ export function pitchName(midi: number): string {
 export function tuningPitchNames(t: Tuning): string {
   return t.pitches.map(pitchName).join(' ')
 }
+
+const NAME_TO_PC: Record<string, number> = {
+  C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11,
+}
+
+/**
+ * Parse one pitch token: a MIDI number ('28') or a note name with octave
+ * ('E1', 'F#1', 'Bb0', 'D♯2'). Null for garbage; never throws.
+ */
+export function parsePitch(token: string): number | null {
+  const t = token.trim()
+  if (/^\d{1,3}$/.test(t)) {
+    const midi = Number(t)
+    return midi >= 0 && midi <= 127 ? midi : null
+  }
+  const m = /^([A-Ga-g])([#♯b♭]?)(-?\d)$/.exec(t)
+  if (!m) return null
+  let pc = NAME_TO_PC[(m[1] as string).toUpperCase()] as number
+  if (m[2] === '#' || m[2] === '♯') pc += 1
+  if (m[2] === 'b' || m[2] === '♭') pc -= 1
+  const midi = (Number(m[3]) + 1) * 12 + pc
+  return midi >= 0 && midi <= 127 ? midi : null
+}
+
+/** Parse a whole pitches line ('B0 E1 A1 D2' or '23,28,33,38'). Null if any token fails. */
+export function parsePitches(text: string): number[] | null {
+  const tokens = text.split(/[\s,]+/).filter(Boolean)
+  if (tokens.length === 0) return null
+  const out: number[] = []
+  for (const token of tokens) {
+    const midi = parsePitch(token)
+    if (midi === null) return null
+    out.push(midi)
+  }
+  return out
+}

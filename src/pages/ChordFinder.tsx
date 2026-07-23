@@ -25,7 +25,14 @@ export default function ChordFinder() {
   const isFavorite = useStore((s) => s.isFavorite)
   const saveQuery = useStore((s) => s.saveQuery)
 
-  const query = useMemo(() => parseQuery(searchParams), [searchParams])
+  const query = useMemo(() => {
+    const parsed = parseQuery(searchParams)
+    // No explicit tuning in the URL → the user's preferred default applies.
+    if (!searchParams.has('t') && resolveTuning(data, data.prefs.defaultTuningId)) {
+      parsed.tuningId = data.prefs.defaultTuningId
+    }
+    return parsed
+  }, [searchParams, data])
   const tuning =
     resolveTuning(data, query.tuningId) ?? (builtinTuning('builtin:standard4') as NonNullable<ReturnType<typeof builtinTuning>>)
   const userChordDefs = data.chordDefIds.map((id) => data.chordDefs[id]!)
