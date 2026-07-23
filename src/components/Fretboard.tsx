@@ -150,7 +150,7 @@ export default function Fretboard({
         const x = stringX(n.s, stringCount, leftHanded)
         const y = fretY(n.f)
         return (
-          <Fragment key={`note-${n.s}`}>
+          <Fragment key={`note-${n.s}-${n.f}`}>
             <circle
               cx={x}
               cy={y}
