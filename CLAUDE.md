@@ -20,8 +20,11 @@ npm run dev          # Vite dev server
 npm run build        # tsc --noEmit && Vite production build to dist/
 npm run preview      # Preview production build locally
 npm run test         # Vitest unit tests (the whole engine: ~140 tests)
+npm run test:e2e     # Playwright e2e suite (e2e/, ~40 tests) — builds run against `vite preview`
 npm run typecheck    # tsc --noEmit
 ```
+
+The e2e suite (`e2e/*.spec.ts`, `playwright.config.ts`) runs against the **production build** — run `npm run build` first; the config's webServer starts `vite preview` on :4173. Vitest and Playwright never overlap: Vitest includes only `src/**`, Playwright only `e2e/`.
 
 Deployed to Netlify. `netlify.toml` configures the SPA redirect and a CSP in which **every directive is 'self' or 'none'** — nothing is widened; the site makes no network requests at all (`connect-src 'none'`).
 

@@ -52,6 +52,13 @@ export default function ParamPanel({
     query.degrees ? formatDegrees(query.degrees.degrees) : '',
   )
   const [degreeError, setDegreeError] = useState(false)
+  // Local pin state: a single pin is not yet a valid stringSet (the query
+  // needs ≥2), but it must survive until the second click lands.
+  const [pins, setPins] = useState<number[]>(query.stringSet ?? [])
+
+  useEffect(() => {
+    setPins(query.stringSet ?? [])
+  }, [query.stringSet])
 
   // Keep the text field in sync when the query changes from outside (URL nav).
   useEffect(() => {
@@ -231,18 +238,22 @@ export default function ParamPanel({
         <span className={labelCls}>Pin to strings (optional)</span>
         <div className="flex flex-wrap gap-1.5">
           {Array.from({ length: stringCount }, (_, s) => {
-            const active = query.stringSet?.includes(s) ?? false
+            const active = pins.includes(s)
             return (
               <button
                 key={s}
                 type="button"
                 aria-pressed={active}
                 onClick={() => {
-                  const current = new Set(query.stringSet ?? [])
+                  const current = new Set(pins)
                   if (current.has(s)) current.delete(s)
                   else current.add(s)
                   const next = [...current].sort((a, b) => a - b)
-                  onChange({ stringSet: next.length >= 2 ? next : null })
+                  setPins(next)
+                  const patch = next.length >= 2 ? next : null
+                  if (patch !== null || query.stringSet !== null) {
+                    onChange({ stringSet: patch })
+                  }
                 }}
                 className={`px-2.5 py-1 rounded-lg text-xs transition-colors ${
                   active
@@ -254,10 +265,13 @@ export default function ParamPanel({
               </button>
             )
           })}
-          {query.stringSet && (
+          {pins.length > 0 && (
             <button
               type="button"
-              onClick={() => onChange({ stringSet: null })}
+              onClick={() => {
+                setPins([])
+                onChange({ stringSet: null })
+              }}
               className="px-2.5 py-1 rounded-lg text-xs text-brand-muted hover:text-brand-bright"
             >
               Clear
