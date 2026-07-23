@@ -7,7 +7,7 @@
  * are primary, names are a secondary annotation, and multiple names may apply
  * across interpretations.
  */
-import { normalizePc, type PitchClass } from './theory'
+import { DEGREE_LABELS, normalizePc, type PitchClass } from './theory'
 import { lookupChord, lookupRootlessChord, type ChordDef } from './naming'
 
 export interface Interpretation {
@@ -26,6 +26,45 @@ export interface Interpretation {
 /** Degree set of a voicing relative to a chosen root (sorted, deduped). */
 export function degreesFor(voicing: readonly number[], rootPc: PitchClass): PitchClass[] {
   return [...new Set(voicing.map((v) => normalizePc(v - rootPc)))].sort((a, b) => a - b)
+}
+
+/** Compound spelling for degrees that sound an octave (or more) above the root. */
+const COMPOUND_LABELS: Partial<Record<PitchClass, string>> = {
+  1: '♭9',
+  2: '9',
+  3: '♯9',
+  5: '11',
+  6: '♯11',
+  8: '♭13',
+  9: '13',
+}
+
+export interface SoundingInterval {
+  pc: PitchClass // octave-agnostic degree
+  label: string // canonical degree label
+  soundsAs: string | null // compound label when it sounds ≥ an octave above the root
+}
+
+/**
+ * Octave placement is an OUTPUT property: '2 sounds as 9'. Reference pitch is
+ * the lowest sounding occurrence of the root (or its theoretical position for
+ * rootless voicings).
+ */
+export function soundingIntervals(
+  voicing: readonly number[],
+  rootPc: PitchClass,
+): SoundingInterval[] {
+  const rootPitch = voicing.find((v) => normalizePc(v - rootPc) === 0) ?? rootPc
+  const seen = new Set<PitchClass>()
+  const out: SoundingInterval[] = []
+  for (const v of voicing) {
+    const pc = normalizePc(v - rootPc)
+    if (seen.has(pc)) continue
+    seen.add(pc)
+    const compound = v - rootPitch >= 12 ? COMPOUND_LABELS[pc] ?? null : null
+    out.push({ pc, label: DEGREE_LABELS[pc] as string, soundsAs: compound })
+  }
+  return out
 }
 
 /**
