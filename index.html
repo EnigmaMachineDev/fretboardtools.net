@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title is set at runtime from SITE_NAME (src/config/site.ts) so a rename is one line. -->
+    <title>FretboardTools</title>
+    <meta
+      name="description"
+      content="Bass fretboard voicing engine. Pick a tuning, a fret window, and the scale degrees you want — get every fingering that fits, rated for playability. Free, browser-only, no account."
+    />
+    <meta name="theme-color" content="#0a0f0a" />
+
+    <!-- Canonical origin is the custom domain, absolute on purpose: Netlify also
+         serves this deploy on *.netlify.app, and hard-coding fretboardtools.net
+         keeps previews from being indexed under the wrong origin. -->
+    <link rel="canonical" href="https://fretboardtools.net/" />
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FretboardTools" />
+    <meta
+      property="og:description"
+      content="Bass fretboard voicing engine. Every fingering that fits your constraints, rated for playability."
+    />
+    <meta property="og:url" content="https://fretboardtools.net/" />
+    <meta property="og:image" content="https://fretboardtools.net/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

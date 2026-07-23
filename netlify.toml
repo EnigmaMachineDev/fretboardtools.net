@@ -1,0 +1,41 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA redirect — react-router-dom v6 handles all routing client-side.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+    # Content-Security-Policy: every directive is 'self' or 'none'. NOTHING is widened.
+    #
+    # This site makes no network requests, loads no third-party code, and embeds no
+    # third-party frames, so there is nothing to widen FOR:
+    #   script-src  'self'  — Vite emits external bundles; no inline scripts.
+    #   style-src   'self'  — Tailwind emits an external stylesheet. No inline styles,
+    #                         no <style> tags. The fretboard renderer uses SVG
+    #                         PRESENTATION ATTRIBUTES (fill=, stroke=), which CSP does
+    #                         not govern — NOT style="" attributes, which style-src
+    #                         'self' would block.
+    #   font-src    'self'  — Cinzel and Inter are self-hosted via @fontsource and are
+    #                         served from our own origin. No font CDN.
+    #   img-src     'self'  — requires `build.assetsInlineLimit: 0` in vite.config.ts.
+    #                         Vite's DEFAULT inlines assets under 4kb as data: URIs,
+    #                         which this directive would block. See the note there.
+    #   connect-src 'none'  — there is no backend, no API, and no runtime fetch. All
+    #                         theory data lives in TypeScript constants in the bundle.
+    #
+    # When Mediavine Grow is added later it WILL need widening (script-src, img-src,
+    # connect-src, frame-src at minimum). Do not pre-widen for it. Widen only when the
+    # feature actually lands, and add a comment here saying which feature needs which
+    # directive.
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; manifest-src 'self'"
