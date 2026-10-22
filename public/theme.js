@@ -35,7 +35,6 @@
     var theme = resolved();
     root.setAttribute('data-theme', theme);
     root.setAttribute('data-theme-pref', pref);
-    root.style.colorScheme = theme;
     for (var i = 0; i < listeners.length; i++) listeners[i](pref, theme);
   }
 
