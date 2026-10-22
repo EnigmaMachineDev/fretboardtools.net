@@ -1,3 +1,8 @@
+// Theme colors are CSS variables (space-separated RGB channels, so opacity
+// modifiers like bg-brand-accent/30 keep working). src/index.css defines them:
+// :root is the light theme, [data-theme="dark"] the original dark green.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -11,17 +16,17 @@ export default {
       // survives a site rename.
       colors: {
         brand: {
-          bg: '#0a0f0a',
-          panel: '#0f1a0f',
-          card: '#142014',
-          border: '#1e3a1e',
-          hover: '#1a2e1a',
-          accent: '#2d5a2d',
-          green: '#4a8c4a',
-          bright: '#6abf6a',
-          text: '#c8e6c8',
-          muted: '#7a9f7a',
-          dim: '#3a5a3a',
+          bg: token('brand-bg'),
+          panel: token('brand-panel'),
+          card: token('brand-card'),
+          border: token('brand-border'),
+          hover: token('brand-hover'),
+          accent: token('brand-accent'),
+          green: token('brand-green'),
+          bright: token('brand-bright'),
+          text: token('brand-text'),
+          muted: token('brand-muted'),
+          dim: token('brand-dim'),
         },
         // Difficulty badge accents (not part of the green theme surface).
         diff: {

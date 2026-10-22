@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Light / dark theme: runs before first paint (see public/theme.js) -->
+    <script src="/theme.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -10,7 +12,8 @@
       name="description"
       content="Bass fretboard voicing engine. Pick a tuning, a fret window, and the scale degrees you want — get every fingering that fits, rated for playability. Free, browser-only, no account."
     />
-    <meta name="theme-color" content="#0a0f0a" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f8f3" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0f0a" />
 
     <!-- Canonical origin is the custom domain, absolute on purpose: Netlify also
          serves this deploy on *.netlify.app, and hard-coding fretboardtools.net

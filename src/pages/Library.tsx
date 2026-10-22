@@ -508,7 +508,7 @@ function DataTab() {
           <label className="flex items-center gap-1.5 text-sm text-brand-text">
             <input
               type="checkbox"
-              className="accent-[#4a8c4a]"
+              className="accent-brand-green"
               checked={data.prefs.leftHanded}
               onChange={(e) => setPrefs({ leftHanded: e.target.checked })}
             />
@@ -517,7 +517,7 @@ function DataTab() {
           <label className="flex items-center gap-1.5 text-sm text-brand-text">
             <input
               type="checkbox"
-              className="accent-[#4a8c4a]"
+              className="accent-brand-green"
               checked={data.prefs.showEquivalenceBadge}
               onChange={(e) => setPrefs({ showEquivalenceBadge: e.target.checked })}
             />

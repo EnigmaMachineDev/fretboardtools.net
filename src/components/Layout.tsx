@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { Coffee, Library, ListMusic, Menu, Search, SlidersHorizontal, Waves, X } from 'lucide-react'
 import { ORG_NAME, SITE_NAME, SITE_NAME_SHORT } from '../config/site'
+import ThemeToggle from './ThemeToggle'
 
 const navItems = [
   { path: '/', label: 'Chord Finder', icon: SlidersHorizontal },
@@ -67,15 +68,19 @@ export default function Layout() {
             </a>
           </nav>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen((o) => !o)}
-            className="md:hidden p-2 text-brand-muted hover:text-brand-bright transition-colors"
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-1">
+            <ThemeToggle className="p-2 rounded-lg text-brand-muted hover:text-brand-bright hover:bg-brand-hover transition-colors" />
+
+            <button
+              type="button"
+              onClick={() => setMobileOpen((o) => !o)}
+              className="md:hidden p-2 text-brand-muted hover:text-brand-bright transition-colors"
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {mobileOpen && (

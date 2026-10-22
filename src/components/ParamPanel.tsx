@@ -37,7 +37,7 @@ function parseDegreeSequence(input: string): PitchClass[] | null {
 const labelCls = 'block text-xs text-brand-muted mb-1'
 const inputCls =
   'w-full bg-brand-panel border border-brand-border rounded-lg px-2 py-1.5 text-sm text-brand-text focus:border-brand-green'
-const checkCls = 'accent-[#4a8c4a]'
+const checkCls = 'accent-brand-green'
 
 export default function ParamPanel({
   query,

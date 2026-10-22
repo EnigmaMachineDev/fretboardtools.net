@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Theme tokens as space-separated RGB channels (tailwind.config wraps them in
+ * rgb(var(--x) / <alpha-value>)). :root is the light theme; the original dark
+ * green applies under [data-theme="dark"], which public/theme.js sets from the
+ * saved preference or the system setting before the first paint.
+ */
+:root {
+  color-scheme: light;
+  --brand-bg: 244 248 243;
+  --brand-panel: 255 255 255;
+  --brand-card: 255 255 255;
+  --brand-border: 207 222 203;
+  --brand-hover: 225 236 223;
+  --brand-accent: 74 138 70;
+  --brand-green: 61 125 61;
+  --brand-bright: 42 122 42;
+  --brand-text: 20 36 20;
+  --brand-muted: 88 116 88;
+  --brand-dim: 138 163 138;
+  --brand-on-accent: 255 255 255;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --brand-bg: 10 15 10;
+  --brand-panel: 15 26 15;
+  --brand-card: 20 32 20;
+  --brand-border: 30 58 30;
+  --brand-hover: 26 46 26;
+  --brand-accent: 45 90 45;
+  --brand-green: 74 140 74;
+  --brand-bright: 106 191 106;
+  --brand-text: 200 230 200;
+  --brand-muted: 122 159 122;
+  --brand-dim: 58 90 58;
+  --brand-on-accent: 200 230 200;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

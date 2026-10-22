@@ -10,8 +10,12 @@
  */
 import { Fragment } from 'react'
 
-// Shared dark-green theme (mirrors tailwind.config.js brand tokens).
-const C = {
+import { useResolvedTheme } from './ThemeToggle'
+
+// The shared green theme in both palettes (mirrors the brand tokens in
+// src/index.css). Picked per render from the resolved theme, because
+// presentation attributes can't read CSS variables.
+const DARK = {
   board: '#0f1a0f',
   line: '#3a5a3a',
   fretLine: '#1e3a1e',
@@ -22,6 +26,18 @@ const C = {
   muted: '#7a9f7a',
   hover: '#1a2e1a',
 } as const
+
+const LIGHT: Record<keyof typeof DARK, string> = {
+  board: '#ffffff',
+  line: '#8aa38a',
+  fretLine: '#cfdecb',
+  note: '#4a8a46',
+  root: '#2a6e2a',
+  noteText: '#ffffff',
+  label: '#142414',
+  muted: '#587458',
+  hover: '#e1ecdf',
+}
 
 export interface FretboardNote {
   s: number // string index, 0 = lowest string
@@ -68,6 +84,7 @@ export default function Fretboard({
   onCellClick,
   compact = false,
 }: FretboardProps) {
+  const C = useResolvedTheme() === 'dark' ? DARK : LIGHT
   const width = PAD_X * 2 + (stringCount - 1) * CELL_W
   const height = PAD_TOP + windowFrets * CELL_H + PAD_BOTTOM
   const r = compact ? 9 : 11

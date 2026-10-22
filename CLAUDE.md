@@ -38,7 +38,7 @@ Transposition- and position-invariant by construction: the user gets *the finger
 
 ## Architecture
 
-React 18 + Vite + TypeScript (strict) SPA, matching SoulframeTools conventions: `react-router-dom` v6 routing, Tailwind 3 with the shared dark-green `brand` tokens, `lucide-react` icons, Cinzel/Inter via `@fontsource` (self-hosted), sibling header/footer chrome.
+React 18 + Vite + TypeScript (strict) SPA, matching SoulframeTools conventions: `react-router-dom` v6 routing, Tailwind 3 with the shared green `brand` tokens in **light and dark**, `lucide-react` icons, Cinzel/Inter via `@fontsource` (self-hosted), sibling header/footer chrome.
 
 **Pure logic lives in `src/lib/*.ts` and is unit-tested with Vitest FIRST** — no React, no store, no DOM in any of it. UI never contains theory. The pipeline:
 
@@ -73,6 +73,10 @@ Routes: `/` ChordFinder · `/identify` (same engine backwards from a clickable f
 ## CSP ↔ assetsInlineLimit coupling (load-bearing)
 
 `netlify.toml` sets `img-src 'self'` with **no `data:`** — so `vite.config.ts` sets `build.assetsInlineLimit: 0`, because Vite's default (4096) would inline small assets as `data:` URIs and silently break them in production. Change either file only together, and keep both comments. The fretboard renderer styles SVG via **presentation attributes** (`fill=`, `stroke=`), which CSP does not govern — never `style=""` attributes, which `style-src 'self'` would block.
+
+## Theme (light / dark)
+
+The `brand` tokens are CSS variables (RGB channels) in `src/index.css`: `:root` is the light theme (Roadwrench's daylight palette), `:root[data-theme="dark"]` the original dark green; `tailwind.config.js` maps them with `rgb(var(--x) / <alpha-value>)`. `public/theme.js` — a plain `<script src>` at the top of `index.html`'s `<head>`, so it is `'self'` under the CSP and runs before first paint — resolves the preference (`system` default, `light`, `dark`, in `localStorage['theme']`), follows OS changes, and sets `<html data-theme>`. It only touches `element.style.colorScheme` through the CSSOM, which `style-src 'self'` does not govern (unlike a `style=""` attribute). `src/components/ThemeToggle.tsx` cycles Match system → Light → Dark in the header, and its `useResolvedTheme()` hook is how the fretboard picks its `DARK` / `LIGHT` presentation-attribute palette — attributes can't read CSS variables. `<meta name="theme-color">` has a light and a dark variant.
 
 ## Known limitations (stated on the About page — keep them there)
 
