@@ -5,3 +5,8 @@ playwright-report
 dist-ssr
 *.local
 .DS_Store
+
+# Local env — never commit secrets
+.env
+.env.*
+!.env.example
